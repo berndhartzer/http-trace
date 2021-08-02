@@ -19,7 +19,7 @@ Options:
       Suppress the response body in the output
 -suppress-headers
       Suppress the response headers in the output
--t int
+-t
       Timeout for the HTTP request in seconds (default 5)
 ```
 
