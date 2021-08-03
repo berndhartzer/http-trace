@@ -1,6 +1,6 @@
 # http-trace
 
-A HTTP tracing tool, created after re-visiting [this Stack Overflow question](https://stackoverflow.com/questions/18215389/how-do-i-measure-request-and-response-times-at-once-using-curl) one too many times.
+A HTTP tracing tool, created after re-visiting [this Stack Overflow question](https://stackoverflow.com/questions/18215389/how-do-i-measure-request-and-response-times-at-once-using-curl) one too many times. Send a HTTP request, get the response and a trace report back.
 
 Heavily based off [rakyll/hey](https://github.com/rakyll/hey) which is fantastic and highly recommended if you need a tool to send load to a web server.
 
@@ -23,12 +23,13 @@ Options:
       Timeout for the HTTP request in seconds (default 5)
 ```
 
-Example command, with the response headers and body suppressed:
-```
+### Example request
+Send a `GET` request to `https://pkg.go.dev/net/http/httptrace`, add a couple of headers, and suppress the response headers and body from the output:
+```sh
 http-trace -m GET -suppress-headers -suppress-body -H 'X-One: hello' -H 'X-Two: one two three' https://pkg.go.dev/net/http/httptrace
 ```
 
-Would give us this output:
+The output of that command would look like this:
 ```
 > GET pkg.go.dev/net/http/httptrace HTTP/1.1
 > X-One: hello
@@ -51,7 +52,7 @@ Trace
   Request total:         1293.66ms
 ```
 
-## Trace data
+## Trace metrics
 
 ```
 Trace
@@ -70,6 +71,19 @@ Trace
 ```
 
 ## Installation
-TODO
 
-In the meantime, we can use the standard go tooling to compile and build a binary.
+TODO: provide download for pre-built binary
+
+### Building from source
+
+We can use the go tooling to build a binary:
+```sh
+# Build for your current environment
+go build -o bin/http-trace
+
+# macOS
+GOOS=darwin GOARCH=amd64 go build -o ./bin/http-trace
+
+# Linux
+GOOS=linux GOARCH=amd64 go build -o ./bin/http-trace
+```
