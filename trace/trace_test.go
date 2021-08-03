@@ -168,7 +168,7 @@ func TestTrace(t *testing.T) {
 
 			// For the rest of the timings we will check that they fall within some
 			// reasonable range
-			err = timeDurationIsInRange(t, timings.ConnectionDialDuration, time.Microsecond, 300, 200)
+			err = timeDurationIsInRange(t, timings.ConnectionDialDuration, time.Millisecond, 1, 1)
 			if err != nil {
 				t.Errorf("ConnectionDialDuration not in range: %v", err)
 			}
@@ -183,7 +183,7 @@ func TestTrace(t *testing.T) {
 				t.Errorf("TotalConnectionDuration not in range: %v", err)
 			}
 
-			err = timeDurationIsInRange(t, timings.RequestWriteDuration, time.Microsecond, 150, 150)
+			err = timeDurationIsInRange(t, timings.RequestWriteDuration, time.Microsecond, 500, 500)
 			if err != nil {
 				t.Errorf("RequestWriteDuration not in range: %v", err)
 			}
