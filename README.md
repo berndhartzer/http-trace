@@ -72,7 +72,7 @@ Trace
 
 ## Installation
 
-TODO: provide download for pre-built binary
+You can download pre-built binaries for macOS or Linux from the [Releases Page](https://github.com/berndhartzer/http-trace/releases)
 
 ### Building from source
 
